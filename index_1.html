@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ian Turner — Linguistics</title>
+<meta name="description" content="Ian Turner — fieldwork and formal analysis in Ancash Quechua, Chechen, and Tarifit Berber. Conference talks and research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111820;
+    --ink-2:#43505c;
+    --paper:#e9e7e0;
+    --paper-2:#f4f3ee;
+    --rule:#c9c5b8;
+    --accent:#2f6f62;
+    --accent-soft:#cfe0da;
+    --display:"Fraunces",Georgia,serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+
+  /* ---------- masthead ---------- */
+  header{padding:64px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 18px;
+  }
+  h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(44px,8vw,76px);
+    line-height:.98;letter-spacing:-.02em;margin:0 0 14px;
+  }
+  .standfirst{
+    font-size:19px;color:var(--ink-2);max-width:44ch;margin:0 0 34px;
+  }
+  nav{
+    display:flex;flex-wrap:wrap;gap:22px;
+    font-family:var(--mono);font-size:13px;letter-spacing:.04em;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:14px 0;margin-bottom:56px;
+  }
+  nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+  nav a:hover,nav a:focus-visible{border-bottom-color:var(--accent);color:var(--accent)}
+
+  /* ---------- signature: the gloss ---------- */
+  .gloss-frame{
+    background:var(--paper-2);border:1px solid var(--rule);
+    padding:32px 28px 26px;margin:0 0 12px;overflow-x:auto;
+  }
+  .gloss{
+    display:flex;gap:22px;font-family:var(--mono);white-space:nowrap;
+    min-width:min-content;
+  }
+  .word{display:flex;flex-direction:column;gap:4px}
+  .surface{font-size:20px;letter-spacing:-.01em}
+  .parse{font-size:12px;color:var(--ink-2);letter-spacing:.02em}
+  .m{cursor:default;padding:0 1px;border-radius:2px;transition:background .15s,color .15s}
+  .m.on{background:var(--accent);color:var(--paper-2)}
+  .free{
+    font-family:var(--display);font-size:19px;margin:22px 0 0;
+    padding-top:16px;border-top:1px solid var(--rule);
+  }
+  .gloss-note{
+    font-family:var(--mono);font-size:12px;color:var(--ink-2);
+    margin:0 0 64px;
+  }
+  .gloss-note b{color:var(--accent);font-weight:500}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:64px;scroll-margin-top:24px}
+  h2{
+    font-family:var(--mono);font-size:12px;font-weight:500;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);
+    margin:0 0 24px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+  }
+  h3{font-family:var(--display);font-weight:600;font-size:25px;line-height:1.2;margin:0 0 6px}
+  .lang{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 10px;
+  }
+  .item{
+    display:grid;grid-template-columns:1fr auto;gap:12px 36px;
+    align-items:start;padding:26px 0;border-bottom:1px solid var(--rule);
+  }
+  .item:first-of-type{padding-top:0}
+  .item p{margin:0 0 12px;color:var(--ink-2);max-width:58ch}
+  .venue{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin:0}
+  .dl{
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    text-decoration:none;color:var(--ink);white-space:nowrap;
+    border:1px solid var(--ink);padding:7px 13px;display:inline-block;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .dl:hover,.dl:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--paper-2)}
+  .kb{font-family:var(--mono);font-size:11px;color:var(--ink-2);display:block;margin-top:7px;text-align:right}
+
+  /* ---------- audio ---------- */
+  .play{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    background:none;border:1px solid var(--ink);color:var(--ink);
+    padding:7px 14px 7px 11px;cursor:pointer;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .play:hover,.play:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--paper-2)}
+  .play .ico{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;
+    border-color:transparent transparent transparent currentColor;flex:none}
+  .play[aria-pressed="true"] .ico{
+    width:8px;height:10px;border:none;
+    background:linear-gradient(to right,currentColor 0 3px,transparent 3px 5px,currentColor 5px 8px);
+  }
+  .play .time{color:inherit;opacity:.6}
+  .bar{height:2px;background:var(--rule);margin-top:10px;max-width:340px}
+  .bar span{display:block;height:100%;width:0;background:var(--accent)}
+
+  .pair{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    background:var(--paper-2);border:1px solid var(--rule);
+    padding:24px;margin:20px 0 0;max-width:640px;
+  }
+  .pair h4{
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 6px;
+  }
+  .pair p{font-size:14px;margin:0 0 14px!important}
+  .pair .ex{font-family:var(--mono);font-size:13px;color:var(--ink)}
+  @media (max-width:620px){.pair{grid-template-columns:1fr}}
+
+  .prose p{max-width:62ch;color:var(--ink-2)}
+  .prose strong{color:var(--ink);font-weight:600}
+  a.inline{color:var(--accent);text-underline-offset:3px}
+
+  footer{
+    border-top:1px solid var(--rule);padding:26px 0 70px;
+    font-family:var(--mono);font-size:12.5px;color:var(--ink-2);
+    display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;
+  }
+  footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+  footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  @media (max-width:620px){
+    .item{grid-template-columns:1fr}
+    .kb{text-align:left}
+    header{padding-top:40px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Athens · Lancaster, PA</p>
+  <h1>Ian Turner</h1>
+  <p class="standfirst">Fieldwork and formal analysis in under-documented languages — evidentiality, aspect, and question intonation, from elicitation session to glossed corpus.</p>
+  <nav>
+    <a href="#research">Research</a>
+    <a href="#talks">Talks</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- SIGNATURE: an interlinear gloss you can take apart -->
+<div class="gloss-frame">
+  <div class="gloss">
+    <div class="word">
+      <span class="surface">Achiquee</span>
+      <span class="parse">Achiquee</span>
+    </div>
+    <div class="word">
+      <span class="surface"><span class="m" data-k="a">tara</span>-<span class="m" data-k="b">rqa</span>-<span class="m" data-k="c">n</span></span>
+      <span class="parse"><span class="m" data-k="a">live</span>-<span class="m" data-k="b">PST</span>-<span class="m" data-k="c">3SG</span></span>
+    </div>
+  </div>
+  <p class="free">‘The Achiquee lived (there).’</p>
+  <div style="margin-top:18px">
+    <button class="play" aria-pressed="false" data-src="audio/quechua-01-achiquee-sov.mp3">
+      <span class="ico" aria-hidden="true"></span>
+      <span class="label">Play the recording</span>
+      <span class="time">0:05</span>
+    </button>
+    <div class="bar"><span></span></div>
+  </div>
+</div>
+<p class="gloss-note">Ancash Quechua, recorded in the field. Word order is SOV and tense-aspect stacks on the verb stem — but subjects drop constantly, so the suffixes do the work. Hover any morpheme.</p>
+
+<section id="research">
+  <h2>Research</h2>
+
+  <article class="item">
+    <div>
+      <p class="lang">Ancash Quechua · Peru</p>
+      <h3>Evidential transference in Quechua–Spanish bilinguals</h3>
+      <p>Quechua obligatorily marks how a speaker came to know what they are asserting — witnessed <span style="font-family:var(--mono)">-mi</span>, reported <span style="font-family:var(--mono)">-shi</span>, inferred <span style="font-family:var(--mono)">-chi</span>. Contact with Spanish is expected to erode that system. Comparing a bilingual speaker's retelling of the Achiquee folktale against 1970s Ancash recordings, I argue the evidential semantics survive the loss of the overt suffix: the distinction is still made, just no longer on the verb.</p>
+      <p class="venue">LCUGA 2025 · University of Georgia</p>
+
+      <div class="pair">
+        <div>
+          <h4>Without evidential</h4>
+          <p class="ex">Achiquee unay-<b>n</b> tiempos ka-shqan.<br>
+            <span style="color:var(--ink-2)">‘The Achiquee existed in old times.’</span></p>
+          <button class="play" aria-pressed="false" data-src="audio/quechua-05-bilingual-no-evidential.mp3">
+            <span class="ico" aria-hidden="true"></span><span class="label">Play</span><span class="time">0:10</span>
+          </button>
+          <div class="bar"><span></span></div>
+        </div>
+        <div>
+          <h4>With evidential</h4>
+          <p class="ex">…chunki-<b>sh</b> … ka-n-<b>mi</b>.<br>
+            <span style="color:var(--ink-2)">‘…ten times, <em>they say</em>… it <em>is</em> (I saw).’</span></p>
+          <button class="play" aria-pressed="false" data-src="audio/quechua-06-bilingual-with-evidential.mp3">
+            <span class="ico" aria-hidden="true"></span><span class="label">Play</span><span class="time">0:09</span>
+          </button>
+          <div class="bar"><span></span></div>
+        </div>
+      </div>
+      <p style="font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-top:14px">
+        Same speaker, same story. The reportative <b style="color:var(--accent);font-weight:500">-sh</b> and direct
+        <b style="color:var(--accent);font-weight:500">-mi</b> appear in one telling and not the other.
+      </p>
+    </div>
+    <div>
+      <a class="dl" href="talks/turner-2025-quechua-evidentials-lcuga.pdf">Slides (PDF)</a>
+      <span class="kb">1.3 MB</span>
+    </div>
+  </article>
+
+  <article class="item">
+    <div>
+      <p class="lang">Chechen · Nakh-Daghestanian</p>
+      <h3>Dynamic verbs and scalar change</h3>
+      <p>Vendler's aspectual classes strain against verbs that encode a scale — <em>widen</em>, <em>cool</em>, <em>warm</em> are telic or atelic depending on how far along the scale you look. I adapt Rappaport Hovav's (2008) diagnostics for Chechen, where scalar predicates are built compositionally (<span style="font-family:var(--mono)">mela</span> 'warm' + <span style="font-family:var(--mono)">della</span> 'become'), and test them in grammaticality judgments with a native speaker from Grozny.</p>
+      <p class="venue">LCUGA 2024 · also presented at KFLC 2024, University of Kentucky</p>
+    </div>
+    <div>
+      <a class="dl" href="talks/turner-2024-chechen-scalar-change-lcuga.pdf">Slides (PDF)</a>
+      <span class="kb">380 KB</span>
+    </div>
+  </article>
+
+  <article class="item">
+    <div>
+      <p class="lang">Tarifit Berber · Morocco</p>
+      <h3>Rising intonation in polar and wh-questions</h3>
+      <p>Tarifit can mark a yes/no question with the particle <span style="font-family:var(--mono)">[ma]</span> — or drop it and let pitch do the work. Field elicitation and spectrographic analysis of both question types, testing whether rising intonation is the redundant partner of the particle or the thing actually carrying the question. Co-authored fieldwork.</p>
+      <p class="venue">Field methods project · with J. McLendon, M. McNamara, C. Augustine</p>
+    </div>
+    <div>
+      <a class="dl" href="talks/turner-tarifit-question-intonation.pdf">Poster (PDF)</a>
+      <span class="kb">238 KB</span>
+    </div>
+  </article>
+</section>
+
+<section id="talks">
+  <h2>Presentations</h2>
+  <div class="prose">
+    <p><strong>Turner, Ian.</strong> (2025, March 15). <em>Evidential Transference in Quechua–Spanish Bilingual Speakers.</em> Linguistics Conference at the University of Georgia (LCUGA), Athens, GA.</p>
+    <p><strong>Turner, Ian.</strong> (2024, April 19). <em>Verbs of Scalar Change in Chechen.</em> Kentucky Foreign Language Conference (KFLC), Lexington, KY.</p>
+    <p><strong>Turner, Ian.</strong> (2024, February 18). <em>Dynamic Verbs &amp; Scalar Change in Chechen.</em> Linguistics Conference at the University of Georgia (LCUGA), Athens, GA.</p>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="prose">
+    <p>I hold an <strong>MA in Spanish Linguistics</strong> from the University of Georgia (2025) and a BA in Spanish and Political Science from Emory (2019). At UGA I was an instructor of record in Spanish and a member of the (Se)Mantis Lab research group.</p>
+    <p>My work runs from elicitation and glossing to quantitative modeling of variation, and I am moving toward doctoral work on the <strong>neural basis of grammatical processing</strong> — how morphology like evidential marking is represented and produced. Alongside research I have spent five years as an <strong>immigration paralegal</strong>, drafting evidence-heavy EB-1A and National Interest Waiver petitions.</p>
+    <p>Member: Linguistic Society of America · IEEE.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="prose">
+    <p>Best reached by email — <a class="inline" href="mailto:YOUR.EMAIL@example.com">YOUR.EMAIL@example.com</a>. CV available on request, or <a class="inline" href="cv/ian-turner-cv.pdf">download it here</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ian Turner</span>
+  <span>
+    <a href="https://github.com/YOUR-USERNAME">GitHub</a> ·
+    <a href="https://orcid.org/">ORCID</a> ·
+    <a href="https://scholar.google.com/">Google Scholar</a>
+  </span>
+</footer>
+</div>
+
+<script>
+  // Link surface morphemes to their glosses.
+  var ms = document.querySelectorAll('.m');
+  function set(k, on){
+    ms.forEach(function(el){
+      if (el.dataset.k === k) el.classList.toggle('on', on);
+    });
+  }
+  ms.forEach(function(el){
+    el.addEventListener('mouseenter', function(){ set(el.dataset.k, true); });
+    el.addEventListener('mouseleave', function(){ set(el.dataset.k, false); });
+  });
+
+  // Audio: one clip at a time, button doubles as play/pause.
+  var current = null;
+  document.querySelectorAll('.play').forEach(function(btn){
+    var audio = new Audio(btn.dataset.src);
+    var fill  = btn.parentElement.querySelector('.bar span');
+    var label = btn.querySelector('.label');
+    var base  = label.textContent;
+
+    function stop(){
+      audio.pause();
+      btn.setAttribute('aria-pressed','false');
+      label.textContent = base;
+    }
+
+    btn.addEventListener('click', function(){
+      if (!audio.paused){ stop(); current = null; return; }
+      if (current && current !== stop) current();
+      audio.play();
+      current = stop;
+      btn.setAttribute('aria-pressed','true');
+      label.textContent = 'Pause';
+    });
+
+    audio.addEventListener('timeupdate', function(){
+      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+    audio.addEventListener('ended', function(){
+      stop(); fill.style.width = '0%'; current = null;
+    });
+    audio.addEventListener('error', function(){
+      btn.disabled = true;
+      label.textContent = 'Audio unavailable';
+    });
+  });
+</script>
+</body>
+</html>
